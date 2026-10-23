@@ -5,6 +5,7 @@
 void display_init(display_t *display, display_model_t *device) {
     memset(display, 0, sizeof(*display));
     display->device = device;
+    display->dirty_pages = (uint8_t)((1u << DISPLAY_PAGES) - 1u);
 }
 
 void display_clear(display_t *display) {

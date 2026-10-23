@@ -8,6 +8,10 @@ static void display_tests(void) {
     display_model_t model = {0};
     display_t display;
     display_init(&display, &model);
+    display_flush(&display); /* synchronize unknown device RAM on startup */
+    assert(model.page_writes == 4u && model.bytes_written == 256u);
+    model.page_writes = 0u;
+    model.bytes_written = 0u;
     display_pixel(&display, 0, 0, true);
     display_pixel(&display, 63, 31, true);
     display_pixel(&display, -1, 2, true);

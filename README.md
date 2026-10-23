@@ -15,12 +15,16 @@ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 ctest --test-dir build --output-on-failure
 ./build/microconsole_sim
+./build/microconsole_play  # interactive terminal: WASD, R, Q (Unix)
 ```
 
 The simulator applies a fixed button script, prints five screen snapshots, and
 reports display traffic, score, audio pin transitions, and `sizeof(console_t)`.
 The first food position is scripted to demonstrate growth and the sound event.
 The game rules and rendering still run through the firmware modules.
+The optional terminal runner accepts live keyboard input through the same
+debounced button driver. Its terminal adapter is POSIX-only; the firmware
+library remains ISO C11.
 
 ## Firmware modules
 

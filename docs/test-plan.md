@@ -17,3 +17,5 @@ Run the build and test commands in the README. The CTest suite checks:
 `microconsole_sim` is an integration exercise: the scripted input keeps the
 game alive, scores once, updates the display, and toggles the virtual audio
 pin. These are host-simulation observations, not physical-device measurements.
+For a manual demo on a Unix terminal, run `microconsole_play` and use WASD to
+steer, R to restart, and Q to quit.

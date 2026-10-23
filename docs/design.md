@@ -6,7 +6,8 @@ The 64×32 framebuffer is 256 bytes. A byte stores eight vertical pixels, so
 pixel `(x,y)` maps to `framebuffer[(y/8)*64+x]` and bit `y%8`. This layout makes
 page copying simple. Each draw call changes only the relevant page's dirty
 bit. `display_flush` copies only dirty 64-byte pages to the virtual display
-model. Clipping avoids writes outside the framebuffer.
+model. Initialization marks all pages dirty to synchronize unknown display
+RAM. Clipping avoids writes outside the framebuffer.
 
 ## Input and timing
 
